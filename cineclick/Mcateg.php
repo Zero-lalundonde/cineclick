@@ -34,7 +34,7 @@
 //  Junto con este programa . Si no es así , consulte < http://www.gnu.org/licenses/ > .
 //  Por precaución la licencia está copiada completa en dos archivos, 
 //  uno llamado COPYING y otro llamado LICENCIA
-include('../conexion.php');
+include('../datos/conexion.php');
 $connect = mysql_connect("localhost" , $coneccion['us'] , $coneccion['contra']);
 mysql_select_db("peliculas",$connect);
 
