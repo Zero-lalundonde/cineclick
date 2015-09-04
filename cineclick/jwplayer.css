@@ -1,0 +1,100 @@
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+
+.like  {
+
+margin-top:18px;
+	position:absolute;
+	border:1px lightgray solid;
+	padding: 8px;
+	text-decoration: none;
+	margin: 5px;
+	border-radius:45px;
+margin-top:-10px;
+}
+
+iframe {
+	margin-bottom: 20px;
+}
+
+a:hover {
+	background-color: lightgray;
+}
+
+a img {
+	max-width: 90%;
+}
+
+#video {
+	width: 640px;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 1px;
+}
+
+#contenido {
+	width: 400px;
+	margin: 20px;
+}
+
+#votos {
+	width: 360px;
+	overflow: hidden;
+}
+
+#barraverde
+{
+	float:left;
+	background-color:#aada37;
+	border:solid 1px #698a14;
+	width:0px;
+	height:8px;
+}
+#barraroja
+{
+	float:left;
+	background-color:#cf362f;
+	border:solid 1px #881811;
+	width:0px;
+	height:8px;
+}
+
+#nebaris{
+	background-color: #000;
+	color: white;
+	padding: 15px;
+	text-align: center;
+	font-family: helvetica;
+}
+
+#nebaris a{
+	color:rgb(178, 255, 178);
+	border:0;
+}
+
+#nebaris a:hover{
+	color:white;
+	background-color: black;
+}
+
+#porro {
+  height: 25px;
+        width: 175px;
+  background-image: url("porro.png");
+  background-repeat: no-repeat;
+}
+
+#quemado {
+ height: 25px;
+        width: 175px;
+            background-image: url("quemado.png");
+  background-repeat: no-repeat;
+background-position: 135px 0;
+            float: left;
+            position:absolute;
+        }
+
+    
+    

@@ -1,0 +1,23 @@
+#bucle : primero hay que usar el comando renombrar para enumerar los archivos.
+	
+	sintaxis: bucle [1er cap] [ultimo cap] [extension] [inicio]
+
+   1er cap: el numero del primer video
+
+   ultimo cap: el numero del ultimo video a convertir
+
+   extension: la extension del archivo original.
+
+   inicio: se indica el segundo desde el que debe comenzar el video, si no se establece este quedará en cero. 
+           por ejemplo para iniciar desde el minuto 1: bucle 2 3 mp4 60
+
+#renombrar
+	sintaxis: renombrar [extension] [inicio]
+   extension: el nombre con el que quedara la extension del nuevo nombre.
+
+   inicio: si no se establece por defecto será 1.
+
+
+#convertir subtitulos ass en srt
+
+   subti archivo.ass

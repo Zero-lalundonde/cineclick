@@ -1,0 +1,177 @@
+######################################################################
+##  «Copyright © 2015 Fco. Gamboa Ortiz»
+##  This file is part of OpenCineClick.
+##
+##  OpenCineClick is free software: you can redistribute it and/or modify
+##  it under the terms of the GNU Affero General Public License as published by
+##  the Free Software Foundation, either version 3 of the License, or
+##  (at your option) any later version.
+##
+##  OpenCineClick is distributed in the hope that it will be useful,
+##  but WITHOUT ANY WARRANTY; without even the implied warranty of
+##  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##  GNU Affero General Public License for more details.
+##
+##  You should have received a copy of the GNU Affero General Public License
+##  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+##
+######################################################################
+##
+##  CineClick v.3
+##
+##  Script instalador del sistema Web de streaming, para Debian 7,
+##  para otros sistemas debe de hacer la instalacion manual.
+##  Leer cuidadosamente este script antes de ejecutarlo. 
+##  Entre las dependencias que instala se destacan mysql-server, 
+##  mysql-client, apache2-threaded-dev, ffmpeg y ffmpeg-php.
+##  
+##  deja.vecu@hotmail.fr  
+##
+##
+
+#PARTES
+PATH_APACHE=/etc/apache2/apache2.conf
+VIRTUAL_HOST=/etc/apache2/sites-enabled/000-default
+	
+echo -e "Mysql Root Pass"
+read MYP
+
+echo -e "Nuevo Usuario para MYSQL"
+read MYU
+
+echo -e "Pass de nuevo Usuario MYSQL"
+read MYUP
+
+#PARA DEBIAN
+apt-get update -y
+
+DIS=$(lsb_release -s -c)
+
+if [ $DIS == wheezy ]; then
+echo "#############################################"
+echo "####### Iniciando instalacion en Debian 7 ###"
+echo "deb http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
+echo "deb-src http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list
+fi
+
+if [ $DIS == jessie ]; then
+echo "#############################################"
+echo "####### Iniciando instalacion en Debian 8 ###"
+echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
+echo "deb-src http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
+fi
+
+apt-get update -y
+apt-get install deb-multimedia-keyring --force-yes -y
+
+#actualizaciones y dependencias
+apt-get update -y
+apt-get upgrade -y
+apt-get install mysql-server mysql-client -y
+apt-get install apache2-threaded-dev -y
+apt-get install php5 php5-mysql php5-gd libapache2-mod-php5 -y
+
+apt-get install chkconfig nano -y
+
+#dependencia para compilar
+apt-get install build-essential -y
+
+#Codec
+apt-get install libfaad-dev faad faac libfaac0 libfaac-dev libmp3lame-dev x264 libx264-dev libxvidcore-dev -y --force-yes
+
+#FFmpeg
+apt-get install ffmpeg php5-ffmpeg --force-yes -y
+
+#MOD H264 MP4
+wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
+tar -zxvf apache_mod_h264_streaming-2.2.7.tar.gz
+cd mod_h264_streaming-2.2.7
+./configure --with-apxs=`which apxs2`
+make
+make install
+cd ../
+
+#apt-get install php5-dev re2c -y
+wget 'http://downloads.sourceforge.net/project/ffmpeg-php/OldFiles/ffmpeg-php-0.6.2.tbz2'
+tar -xjf ffmpeg-php-0.6.2.tbz2
+cd ffmpeg-php-0.6.2
+phpize
+./configure
+make
+make install
+echo "extension=ffmpeg.so" >> /etc/php.ini
+cd ../
+
+
+#Iniciar servicions
+service mysql start
+chkconfig --level s mysql on
+chkconfig mysql on
+
+service apache2 start
+chkconfig --level s apache2 on
+chkconfig apache2 on
+
+#MYSQL base de datos
+#crear Base de datos
+mysql -uroot -p$MYP -e "create database peliculas";
+
+#tabla lista de series, dibujito y audio libros
+mysql -uroot -p$MYP -e "use peliculas; create table series( id SMALLINT NOT NULL AUTO_INCREMENT KEY, serie VARCHAR(60), directorio VARCHAR(60), numerocap TINYINT(3) UNSIGNED, exten VARCHAR(4), sd BOOLEAN, quien varchar(30))";
+
+#tabla lista de peliculas
+mysql -uroot -p$MYP -e "use peliculas; create table lista( id SMALLINT NOT NULL AUTO_INCREMENT KEY, titulo VARCHAR(90), fecha SmallInt(4), titucom VARCHAR(90), direccion VARCHAR(210), actuacion VARCHAR(260), triler VARCHAR(400), guion VARCHAR(100), bueno TINYINT(3), malo TINYINT(3), dura varchar(9), anime tinyint(1), docu tinyint(1), subir tinyint(1), esp tinyint(1), subv tinyint(1), remoto tinyint(1), remotoid smallint(6))";
+
+#tabla audio
+#mysql -uroot -p$MYP -e "use peliculas; create table audio( id SMALLINT NOT NULL AUTO_INCREMENT KEY, autoria VARCHAR(90), album VARCHAR(90), titulo VARCHAR(150))";
+
+#tabla actual ; serie = id de la serie
+mysql -uroot -p$MYP -e "use peliculas; create table actual( id SMALLINT NOT NULL AUTO_INCREMENT KEY,  serie tinyint(3) unsigned, cap tinyint(3) unsigned, alias VARCHAR(15) not null, dura SMALLINT (2))";
+
+#tabla comentarios
+mysql -uroot -p$MYP -e "use peliculas; create table comenta( id SMALLINT NOT NULL AUTO_INCREMENT KEY, serie tinyint(3) unsigned, alias VARCHAR(15), texto VARCHAR(500), pel tinyint(1) not null)";
+
+#tabla corto
+mysql -uroot -p$MYP -e "use peliculas; create table corto( id SMALLINT NOT NULL AUTO_INCREMENT KEY, nombre VARCHAR(35) NOT NULL, dura varchar(9), archivo VARCHAR(35))";
+
+#crear usuario y darle permisos adecuados
+#mysql -uroot -p$MYP -e "GRANT all ON peliculas.lista TO $MYU IDENTIFIED BY '$MYUP'";
+#mysql -uroot -p$MYP -e "GRANT all ON peliculas.series TO $MYU IDENTIFIED BY '$MYUP'";
+#mysql -uroot -p$MYP -e "GRANT all ON peliculas.audio TO $MYU IDENTIFIED BY '$MYUP'";
+#mysql -uroot -p$MYP -e "GRANT all ON peliculas.actual TO $MYU IDENTIFIED BY '$MYUP'";
+#mysql -uroot -p$MYP -e "GRANT all ON peliculas.comenta TO $MYU IDENTIFIED BY '$MYUP'";
+#mysql -uroot -p$MYP -e "GRANT all ON peliculas.corto TO $MYU IDENTIFIED BY '$MYUP'";
+mysql -uroot -p$MYP -e "GRANT ALL PRIVILEGES ON peliculas.* to $MYU@localhost IDENTIFIED BY '$MYUP'";
+mysql -uroot -p$MYP -e "GRANT SELECT ON peliculas.* to compartir@'%' IDENTIFIED BY 'libre'";
+mysql -uroot -p$MYP -e "FLUSH PRIVILEGES";
+
+#mysql romota
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/my.cnf
+
+sed -i 's/EDITOR/'$MYU'/g' datos/conexion.php
+sed -i 's/CONTRA/'$MYUP'/g' datos/conexion.php
+
+#PERMISOS
+chown -R www-data:www-data .
+chmod -R 777 .
+
+#htacces
+mv htaccess .htaccess
+chmod 644 ./.htaccess
+chmod 600 ./datos/conexion.php
+
+echo "LoadModule h264_streaming_module /usr/lib/apache2/modules/mod_h264_streaming.so" >> $PATH_APACHE
+echo "AddHandler h264-streaming.extensions .mp4" >> $PATH_APACHE
+
+sed -i 's/AllowOverride None/AllowOverride All/g' $VIRTUAL_HOST
+
+rm -Rf ./mod_h264_streaming-2.2.7
+rm -Rf ./apache_mod_h264_streaming-2.2.7.tar.gz
+rm -Rf ./cineclick.tar.gz
+
+#listo
+service apache2 restart
+
+echo "###############################################"
+echo "############## INSTALACION EXITOSA ############"
+

@@ -1,0 +1,18 @@
+
+if [!$2]; then
+caca=0
+else
+caca=$2
+fi
+sh /var/www/html/script/espacios;
+
+uno=1;
+NUM=$[caca-uno] ;
+
+
+for FILE in * ;
+do NUM=`expr $NUM + 1` ;
+echo "	$FILE  Cambiado por ==>  $NUM.$1";
+mv $(pwd)/$FILE $(pwd)/$NUM.$1 ;
+done;
+ls -la

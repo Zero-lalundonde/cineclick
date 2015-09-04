@@ -1,0 +1,19 @@
+body { padding: 0; font-size:13px; font-family: arial;  }
+h1 { color: rgba(32, 100, 182, 1); margin: 0 0 0 30px; }
+form { display: block; margin: 20px auto; background: #eee; border-radius: 10px; padding: 20px }
+a:link { text-decoration:none; }
+#te { width:30px; padding:3px; text-align:center; border: solid 1px rgba(17, 146, 182, 1); border-radius: 3px;  }
+#te2 { width:200px; padding:3px; text-align:center; border:solid 1px rgba(17, 146, 182, 1); border-radius: 3px; }
+#nu { margin-top:10px; width:220px; border:dashed 1px #777; padding: 5px 10px 5px 10px; border-radius: 5px; margin-bottom: 10px; font-weight: bold; }
+#subsub { background-color: #7FC436; padding:3px; border:solid 2px #5D8A2E ; color: #fff;border-radius: 5px; }
+#sel { margin-top:5px;border:solid 2px #777; border-radius:3px; padding-left:3px; color: rgba(10, 90, 112, 1); }
+#rs { padding: 10px; border:dashed 2px rgba(46, 153, 0, 1); font-size:18px; font-weight: bold; width: 30%; margin-top:10px; margin-left: auto; margin-right: auto; text-align: center; border-radius: 5px; color: rgba(31, 102, 0, 1); }
+#submit {cursor:pointer;display:block; margin-top:20px; background-color: rgba(127, 196, 54, 1); color: #fff; font-weight: bold; padding:5px; border:solid 1px rgba(93, 138, 46, 1); border-radius: 10px; }	
+.ar { padding:10px; border:solid 1px #3798C8; margin-bottom:15px; width:40%; border-radius: 5px; margin-top: 20px; color: rgba(24, 56, 5, 0.87); c:rgba(170, 123, 34, 1); }
+.nu2 { margin-top:10px; width:350px; border:dashed 1px #777; padding: 5px 10px 5px 10px; border-radius: 5px; margin-bottom: 15px; font-weight: bold;}
+.serdib {background: rgba(55, 152, 200, 1); color: #fff ; font-weight:bold; border:solid 1px rgba(39, 109, 144, 1); padding: 5px; width: 250px; border-radius: 3px; text-align: center; display: inline;}
+.fil {background-color: transparent; width: 100px;border-radius:10px;margin-top:5px; color: transparent;}
+.progress { position:relative; width:50%; border: 1px solid #ddd; padding: 1px; border-radius: 3px; font-weight: bold; color: rgba(18, 42, 4, 1); }
+.percent { position:absolute; display:inline-block; top:3px; left:48%; padding-top: 2px; font-size: 18px; }
+.bar { background-color: rgba(117, 153, 46, 1); width:0%; height:30px; border-radius: 3px; }
+

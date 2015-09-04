@@ -1,0 +1,14 @@
+ffmpeg -threads 2 -i tmp/$1.$2  -ss $4 -vcodec libx264 -vb 450k -vpre normal -maxrate 450k -minrate 300k -bufsize 450K -s $3 -acodec libfaac -ab 100k -ac 2 $(pwd)/$1.mp4
+
+#opcion por defecto
+#ffmpeg -i tmp/$1.$2  -map [v] -map 0:1 -ss $4 -vcodec libx264 -vb 450k -vpre normal -maxrate 450k -minrate 300k -bufsize 450K -s $3 -threads 2 -acodec libfaac -ab 100k -ac 2 $(pwd)/$1.mp4
+
+#ffmpeg -i tmp/$1.$2  -map 0:1 -map 0:0 -ss $4 -vcodec libx264 -vb 450k -vpre normal -maxrate 450k -minrate 300k -bufsize 450K -s $3 -threads 2 -acodec libfaac -ab 100k -ac 2 $(pwd)/$1.mp4
+
+#1er idioma
+#ffmpeg -i tmp/$1.$2 -map [v] -map 0:1 -ss $4 -vcodec libx264 -vb 300k -vpre normal -maxrate 300k -minrate 300k -bufsize 300K -s $3 -threads 2 -acodec libfaac -ab 100k -ar 48000 -ac 6 $(pwd)/$1.mp4
+
+#2do idioma
+#ffmpeg -i tmp/$1.$2 -map [v] -map 0:2 -ss $4 -vcodec libx264 -vb 300k -vpre normal -maxrate 300k -minrate 300k -bufsize 300K -s $3 -threads 2 -acodec libfaac -ab 100k -ar 48000 -ac 6 $(pwd)/$1.mp4
+#720x320
+

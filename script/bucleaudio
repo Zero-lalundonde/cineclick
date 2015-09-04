@@ -1,0 +1,9 @@
+#./bucle numeroInicio NumeroFinal
+#1 es el primer cap
+#2 es el ultimo cap
+#3 es extension
+#4 inicio
+for (( i=$1; i<=$2; i++ ))
+do
+/var/www/html/script/audioffmpeg $i $3 $4;
+done

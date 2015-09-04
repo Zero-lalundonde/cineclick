@@ -1,0 +1,17 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule http-bind/ http://localhost:7070/http-bind/ [P]
+</IfModule>
+
+<IfModule mod_php5.c>
+php_value upload_max_filesize 8000M
+php_value post_max_size 8001M
+php_value memory_limit 7000M
+#php_value display_errors On
+#php_value safe_mode Off
+#php_value upload_tmp_dir /tmp
+</IfModule>
+
+

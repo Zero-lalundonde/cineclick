@@ -1,0 +1,13 @@
+#if [ -n "$4" ]; then
+#4=0
+#fi
+echo "¿Que Resolucion?"
+select yn in "640x480" "720x320" "Audio"; do
+    case $yn in
+        640x480 ) resolu=640x480; sh /var/www/html/script/bucle2 $1 $2 $3 $resolu $4; exit;;
+        720x320 ) resolu=720x320; sh /var/www/html/script/bucle2 $1 $2 $3 $resolu $4; exit;;
+        Audio )  sh /var/www/html/script/bucleaudio $1 $2 $3 $4; exit;;
+
+    esac
+done
+

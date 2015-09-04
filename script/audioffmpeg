@@ -1,0 +1,4 @@
+#1cap
+#2 extension
+#3 tiempo inicio
+ffmpeg -i tmp/$1.$2 -ss $3 -threads 2 -acodec libfaac -ab 100k -ac 2 $(pwd)/$1.mp3

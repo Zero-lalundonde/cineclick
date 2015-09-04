@@ -1,0 +1,5 @@
+#./bucle numeroInicio NumeroFinal
+for (( i=$1; i<=$2; i++ ))
+do
+/var/www/html/script/bucleffmpeg $i $3 $4 $5;
+done

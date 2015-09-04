@@ -1,0 +1,11 @@
+#comenta{max-width:640px;height:auto;border:solid 1px #555;color:#FFF;margin: auto auto;margin-bottom:50px;background:#ccc;border-radius:3px;padding:30px 40px 10px 40px;box-sizing:border-box;opacity:.9;font-weight:bold;}
+#boton07{padding:5px;border:solid 1px #888;border-radius:2px;margin-top:5px;color:#444;}
+#boton07:hover{border:solid 2px #555;color:#222;font-weight:bold;box-sizing:border-box;}
+#boton07:focus{background:green;color:#FFF;}
+#comalias{text-align: center;padding:5px;width:90px;display:inline;margin-bottom:2px;}
+#comtext{width:100%;min-height:80px;margin-left:auto;margin-right:auto;display:inline;padding: 7px;box-sizing:border-box;}
+.respcom{width:95%;height:auto;margin-bottom:10px;margin-left:auto;margin-right:auto;border:dashed 1px #444;padding:20px;box-sizing:border-box;}
+.rca{display:block;color:#333;font-weight:bold;font-size:14px;}
+.rct{display:block;color:#555;font-style:italic;font-size:14px;}
+#boton08{margin-top:5px;color:294517;font-weight:bold;font-size:11px;}
+@media (max-width: 450px) {#scroll{display:none;}#comenta{padding:0px;}}
