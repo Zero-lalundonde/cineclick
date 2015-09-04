@@ -83,7 +83,7 @@ $cat=$random[$alea];
 <link rel="stylesheet" href="include-comentario.css">
 
 <!-- Votos -->
-<link rel="stylesheet" href="winclude-votos.css">
+<link rel="stylesheet" href="include-votos.css">
 
 <style>
 body {margin:0;padding:0; width:100%; font-family: arial;}
