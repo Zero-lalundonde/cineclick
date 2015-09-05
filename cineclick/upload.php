@@ -177,7 +177,7 @@ $files5[$i] = str_replace("ü", "u", $files5[$i]);
 
 if (move_uploaded_file($_FILES['archivo']['tmp_name'][$i],$ddi.$tmp.$files5[$i])){
 	
-echo "<div id='rs'>Listo, bkn que aportes!!!</div>";
+echo "<div id='rs'>Terminando... faltan unos segundos y listo, bkn que aportes!!!</div>";
 shell_exec("echo '<?php' > ultima");
 shell_exec("echo '\$cual = \"$titu1$titu2\";' >> ultima");
 shell_exec("echo '\$cuanto = \"$epi\";' >> ultima");
