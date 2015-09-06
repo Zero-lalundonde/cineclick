@@ -188,7 +188,12 @@ shell_exec("echo '?>' >> ultima");
 echo "<script>ActivarEnviar()</script>";
 
 if($vv == 'nues'){
+	
+if($sd == '0' || $sd == '1'){
+$sql1 = "INSERT INTO series (serie, directorio, numerocap, exten, sd, quien) VALUES ('$titu2', '$dire', '$epi', '$tex', '$sd', null)";
+}elseif($sd == '3'){
 $sql1 = "INSERT INTO series (serie, directorio, numerocap, exten, sd, quien) VALUES ('$titu2', '$dire', '$epi', '$tex', '$sd', '$quien')";
+} 
 mysql_query($sql1, $connect);
 }elseif($vv == 'cap'){
 $sql1 = " UPDATE series SET numerocap='$epi' WHERE id = $idb ";
