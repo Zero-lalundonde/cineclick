@@ -231,7 +231,7 @@ $text = file_get_contents($filename);
 if (codificacion($text) == 1 OR codificacion($text) == 2){
 //SRT UTF-8
 if($extsub == "srt"){
-shell_exec("cp $disub$tmp$dire.$extsub $disub$dire$epi.$extsub");
+shell_exec("cp $disub$tmp$dire$epi.$extsub $disub$dire$epi.$extsub");
 }
 
 //ASS UTF-8
