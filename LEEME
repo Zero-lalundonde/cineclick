@@ -154,6 +154,7 @@ sed -i 's/CONTRA/'$MYUP'/g' datos/conexion.php
 #PERMISOS
 chown -R www-data:www-data .
 chmod -R 777 .
+chmod +x cineclick/subti.sh
 
 #htacces
 mv htaccess .htaccess
