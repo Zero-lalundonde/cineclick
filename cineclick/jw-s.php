@@ -99,8 +99,8 @@ var det = 0;
 jwplayer("reproductor").onComplete( function(event){
 var conta = ++det;
 if(conta == 3){
-alert("!genial que te guste tanto esta serie!\n para continuar dale click al capitulo siguiente.");
 jwplayer().stop();
+alert("!genial que te guste tanto esta serie!\n para continuar dale click al capitulo siguiente.");
 conta = null;
 det = null;
 };
