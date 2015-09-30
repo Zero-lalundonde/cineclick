@@ -28,20 +28,20 @@ repocitorios oficiales.
 Al descargar OpenCineClick con git, el directorio raiz / se llama cineclick,
 y a su vez tambien tiene un subdirectorio que se llama igual:
 
-cineclick/
-|---cineclick/
-|---datos/
-|---panel/
-|---peliculas/
-|---script/
-|---COPYING
-|---Instruccion_Descarga
-|---LEEME
-|---LICENSE
-|---README.md
-|---crossdomain.xml
-|---htacces
-|---index.html
+        cineclick/
+        |---cineclick/
+        |---datos/
+        |---panel/
+        |---peliculas/
+        |---script/
+        |---COPYING
+        |---Instruccion_Descarga
+        |---LEEME
+        |---LICENSE
+        |---README.md
+        |---crossdomain.xml
+        |---htacces
+        |---index.html
 
 Es el contenido del directorio raiz llamado cineclick el que se debe mover al 
 directorio de acceso publico de Apache "/var/www", el contenido y no el directorio mismo.
@@ -66,7 +66,8 @@ para la conversion de los diferentes formatos multimedia.
 Instala el modulo H264 MP4 en apache para reproduccion straming.
 
 Este script agrega el siguiente repositorio para cubrir las dependencias:
-deb http://www.deb-multimedia.org wheezy main non-free
+
+        "deb http://www.deb-multimedia.org wheezy main non-free"
 
 ############# CONTACTO #################################
 
