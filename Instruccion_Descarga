@@ -1,9 +1,0 @@
-#ejecutar en este orden sin agregar nada mas.
-
-cd ~
-git clone https://github.com/Zero-lalundonde/cineclick.git
-mkdir /var/www
-mv cineclick/* /var/www/
-cd /var/www/
-chmod +x LEEME
-./LEEME 
