@@ -13,5 +13,3 @@ php_value memory_limit 7000M
 #php_value safe_mode Off
 #php_value upload_tmp_dir /tmp
 </IfModule>
-
-
