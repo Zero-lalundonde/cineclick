@@ -34,8 +34,6 @@ y a su vez tambien tiene un subdirectorio que se llama igual:
         |---panel/
         |---peliculas/
         |---script/
-        |---COPYING
-        |---Instruccion_Descarga
         |---LEEME
         |---LICENSE
         |---README.md
