@@ -63,7 +63,7 @@ El Script se llama LEEME, este instala mysql y crea la base de datos
 necesaria para gestionar la pagina, tambien instala ffmpeg que es necesario
 para la conversion de los diferentes formatos multimedia.
 
-Instala el modulo H264 MP4 en apache para reproduccion straming.
+Instala el modulo H264 MP4 en apache para reproduccion streaming.
 
 Este script agrega el siguiente repositorio para cubrir las dependencias:
 
