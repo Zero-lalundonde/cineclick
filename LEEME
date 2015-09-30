@@ -173,6 +173,6 @@ rm -Rf ./cineclick.tar.gz
 #listo
 service apache2 restart
 
+
 echo "###############################################"
 echo "############## INSTALACION EXITOSA ############"
-
