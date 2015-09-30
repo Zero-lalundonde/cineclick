@@ -72,4 +72,6 @@ Este script agrega el siguiente repositorio para cubrir las dependencias:
 ############# CONTACTO #################################
 
 Aun no he creado una wiki para OpenCineClick, mientras tanto las consultas
-pueden hacerlas a deja.vecu@hotmail.fr
+pueden hacerlas a 
+
+        deja.vecu@hotmail.fr
