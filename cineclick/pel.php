@@ -295,7 +295,7 @@ include('buscar.php');
 <div id="resultadodib">
 <?php
 // Dibujitos
-$resultado = mysql_query("SELECT * FROM series WHERE sd='0' order by id desc", $conectar) or die (mysql_error());
+$resultado = mysql_query("SELECT * FROM series WHERE sd='0' AND serie LIKE '%$cadena%' order by id desc", $conectar) or die (mysql_error());
 $ancho = mysql_num_rows($resultado) * 200;
 echo "<div style='width:$ancho\px;'>";
 while ($row = mysql_fetch_array($resultado)) {
@@ -315,7 +315,7 @@ echo "</div>";
 <div id="resultadoser">
 <?php
 // Series
-$resultado = mysql_query("SELECT * FROM series WHERE sd='1' order by id desc", $conectar) or die (mysql_error());
+$resultado = mysql_query("SELECT * FROM series WHERE sd='1' AND serie LIKE '%$cadena%' order by id desc", $conectar) or die (mysql_error());
 $ancho = mysql_num_rows($resultado) * 200;
 echo "<div style='width:$ancho\px;'>";
 while ($row = mysql_fetch_array($resultado)) {
