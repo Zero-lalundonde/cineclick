@@ -142,7 +142,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
 // VIDEO
 
-if ($ext[$i] == "video/x-ms-wmv" OR $ext[$i] == "video/avi" OR $ext[$i] == "video/msvideo" OR $ext[$i] == "video/x-msvideo" OR $ext[$i] == "video/x-flv" OR $ext[$i] == "video/mp4" OR $ext[$i] == "video/ogg" OR $ext[$i] == "video/mpeg" OR $ext[$i] == "video/x-matroska" OR $extv == "avi" OR $extv == "flv" ){
+if ($ext[$i] == "application/vnd.rn-realmedia" OR $ext[$i] == "video/x-ms-wmv" OR $ext[$i] == "video/avi" OR $ext[$i] == "video/msvideo" OR $ext[$i] == "video/x-msvideo" OR $ext[$i] == "video/x-flv" OR $ext[$i] == "video/mp4" OR $ext[$i] == "video/ogg" OR $ext[$i] == "video/mpeg" OR $ext[$i] == "video/x-matroska" OR $extv == "avi" OR $extv == "flv" ){
 
 
 $files2[$i] = str_replace(" ", "_", $files[$i]);
