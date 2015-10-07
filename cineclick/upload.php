@@ -159,7 +159,7 @@ $extv = end($trozos);
 // VIDEO y AUDIO
 
 
-if ($ext[$i] == "audio/ogg" OR $ext[$i] == "audio/vnd.wav" OR $ext[$i] == "audio/basic" OR $ext[$i] == "audio/x-aiff" OR $ext[$i] == "audio/x-mpegurl" OR $ext[$i] == "audio/vorbis" OR $ext[$i] == "audio/mpeg" OR $ext[$i] == "video/x-ms-wmv" OR $ext[$i] == "video/avi" OR $ext[$i] == "video/msvideo" OR $ext[$i] == "video/x-msvideo" OR $ext[$i] == "video/x-flv" OR $ext[$i] == "video/mp4" OR $ext[$i] == "video/ogg" OR $ext[$i] == "video/mpeg" OR $ext[$i] == "video/x-matroska" OR $extv == "mp3" OR $extv == "avi" OR $extv == "flv" ){
+if ($ext[$i] == "application/vnd.rn-realmedia" OR $ext[$i] == "audio/ogg" OR $ext[$i] == "audio/vnd.wav" OR $ext[$i] == "audio/basic" OR $ext[$i] == "audio/x-aiff" OR $ext[$i] == "audio/x-mpegurl" OR $ext[$i] == "audio/vorbis" OR $ext[$i] == "audio/mpeg" OR $ext[$i] == "video/x-ms-wmv" OR $ext[$i] == "video/avi" OR $ext[$i] == "video/msvideo" OR $ext[$i] == "video/x-msvideo" OR $ext[$i] == "video/x-flv" OR $ext[$i] == "video/mp4" OR $ext[$i] == "video/ogg" OR $ext[$i] == "video/mpeg" OR $ext[$i] == "video/x-matroska" OR $extv == "mp3" OR $extv == "avi" OR $extv == "flv" ){
 
 
 $files2[$i] = str_replace(" ", "_", $files[$i]);
