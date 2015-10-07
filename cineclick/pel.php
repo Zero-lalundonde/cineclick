@@ -290,13 +290,21 @@ include('buscar.php');
 </div>
 <a href="#" id="avanzar"><img id="imgavanzar" src="avanzar.png"></a> 
 
-<div class="Sec">Dibujitos</div>
+<div class="Sec" id="scrolldibt">Dibujitos</div>
 <div id='scrolldib' class="scroll" style="margin-top:0px;">
 <div id="resultadodib">
 <?php
 // Dibujitos
 $resultado = mysql_query("SELECT * FROM series WHERE sd='0' AND serie LIKE '%$cadena%' order by id desc", $conectar) or die (mysql_error());
 $ancho = mysql_num_rows($resultado) * 200;
+
+if(!mysql_num_rows($resultado)){
+?>
+<script>$("#scrolldib").css("display", "none");</script>
+<script>$("#scrolldibt").css("display", "none");</script>
+<?php
+}
+
 echo "<div style='width:$ancho\px;'>";
 while ($row = mysql_fetch_array($resultado)) {
 $id = $row['id'];$serie = $row['serie'];$directorio = $row['directorio'];$numerocap = $row['numerocap'];$sd = $row['sd'];
@@ -310,13 +318,21 @@ echo "</div>";
 </div>
 
 
-<div class="Sec">Series</div>
+<div class="Sec" id="scrollsert">Series</div>
 <div id='scrollser' class="scroll" style="margin-top:0px;">
 <div id="resultadoser">
 <?php
 // Series
 $resultado = mysql_query("SELECT * FROM series WHERE sd='1' AND serie LIKE '%$cadena%' order by id desc", $conectar) or die (mysql_error());
 $ancho = mysql_num_rows($resultado) * 200;
+
+if(!mysql_num_rows($resultado)){
+?>
+<script>$("#scrollser").css("display", "none");</script>
+<script>$("#scrollsert").css("display", "none");</script>
+<?php
+}
+
 echo "<div style='width:$ancho\px;'>";
 while ($row = mysql_fetch_array($resultado)) {
 $id = $row['id'];$serie = $row['serie'];$directorio = $row['directorio'];$numerocap = $row['numerocap'];$sd = $row['sd'];
