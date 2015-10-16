@@ -42,7 +42,12 @@ y a su vez tambien tiene un subdirectorio que se llama igual:
         |---index.html
 
 Es el contenido del directorio raiz llamado cineclick el que se debe mover al 
-directorio de acceso publico de Apache "/var/www", el contenido y no el directorio mismo.
+directorio de acceso publico de Apache "/var/www", el contenido y no el directorio mismo,
+entendiendo que /var/www representa el directorio web en este ejemplo:
+
+         mv cineclick/* /var/www/
+
+############# Instalacion Automatica ###################
 
 Con estos pasos se descarga e instala de forma automatica, el ultimo paso ejecuta el script
 de instalacion llamado LEEME.
